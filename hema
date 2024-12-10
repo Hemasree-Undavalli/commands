@@ -1,0 +1,15 @@
+pipeline {
+    agent any
+    stages {
+        stage ('checkout/clone'){
+            steps{
+                git branch:'main',url:('https://github.com/Hemasree-Undavalli/commands.git')
+            }
+        }
+        stage ('Bulid'){
+            steps {
+                sh ('mvn clean install')
+            }
+        }
+    }
+}
